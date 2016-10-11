@@ -96,6 +96,16 @@ body{
     border: 3px solid black;
     border-radius: 10px;
 }
+#formula3{
+      position: relative;
+    margin-top:-13px;
+    width: 100px;
+    height: 100px;
+    margin-left: 200px;
+    background-color: #FFFFFF;
+    border: 3px solid black;
+    border-radius: 10px;
+}
 #craftResult{
     position: relative;
     width: 100px;

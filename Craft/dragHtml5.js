@@ -37,28 +37,7 @@ block2.ondrop = function (e) {
 block2.ondragover = function (e) {
     dragOver(e);
 };
-blockFormula1.ondragenter = function (e) {
-    dragEnter(e);
-};
 
-blockFormula1.ondrop = function (e) {
-    dragDrop(e);
-};
-
-blockFormula1.ondragover = function (e) {
-    dragOver(e);
-};
-blockFormula2.ondragenter = function (e) {
-    dragEnter(e);
-};
-
-blockFormula2.ondrop = function (e) {
-    dragDrop(e);
-};
-
-blockFormula2.ondragover = function (e) {
-    dragOver(e);
-};
 prod.ondragenter = function (e) {
     dragEnter(e);
 };
