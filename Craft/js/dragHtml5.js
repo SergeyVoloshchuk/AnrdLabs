@@ -1,10 +1,11 @@
-var elements = document.getElementsByClassName("draggable");
-var block1 = document.getElementById("craft1");
-var block2 = document.getElementById("craft2");
-var blockFormula1 = document.getElementById("formula1");
-var blockFormula2 = document.getElementById("formula2");
-var prod = document.getElementById("prod");
+var elements = ElementsModule.getElemsDrag();
+var block1 = ElementsModule.getBlockCraft1();
+var block2 = ElementsModule.getBlockCraft2();
+var blockFormula1 = ElementsModule.getBlockFormula1();
+var blockFormula2 = ElementsModule.getBlockFormula2();
+var prod = ElementsModule.getBlockProd();
 var bl;
+//установим атрибут drag для всех элементов 
 for (var i = 0; i < elements.length; i++)
     elements[i].setAttribute("draggable", "true");
 
@@ -56,7 +57,7 @@ function dragOver(e) {
 };
 
 function dragDrop(e) {
-    if (!inBlocks() && bl != prod) {
+    if (!inBlocks() && bl != prod|| e.target.tagName==="IMG") {
         return false;
     }
 

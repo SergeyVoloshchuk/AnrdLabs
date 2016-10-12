@@ -2,46 +2,49 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
- 
-  
-   <link rel="stylesheet" href="style.css">
-  <script>
+    <meta charset="UTF-8">
 
-  </script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+    </script>
 </head>
 
 <body>
-<div id="header"><p>CRAFTING</p></div>
-    <div  class="prod" id="prod">
-    <img data-tooltip="БАТОН!<br>Рецепт:<br>Baton+Kolbasa=Buter" alt="Baton" class="draggable" id="item" src="img/baton.png">
-    <img data-tooltip="Колбаска!<br>Рецепт:<br>Baton+Kolbasa=Buter" alt="Kolbasa" class="draggable" id="item2" src="img/kolbasa.png">
-    <img style="display:none" data-tooltip="Buter!<br>Рецепт:<br>Baton+Kolbasa=Buter" alt="Buter" class="draggable" id="item3" src="img/buter.png" >
-     <img data-tooltip="Makaroshki!<br>Рецепт:<br>Makaroshki+Ketchup=Uh!Makaroski" alt="Pero" class="draggable" id="item4" src="img/pero.png" >
-      <img  data-tooltip="Ketchup!<br>Рецепт:<br>Makaroshki+Ketchup=Uh!Makaroski" alt="Ketchup" class="draggable" id="item5" src="img/ketchup.png" >
-      <img style="display:none" data-tooltip="Uh!Makaroski!<br>Рецепт:<br>Makaroshki+Ketchup=Uh!Makaroski" alt="Makaroshki s ketchupom" class="draggable" id="item6" src="img/gotovie_makaroni.jpg" >
+    <div id="header">
+        <p>CRAFTING</p>
     </div>
-     <p>переносить сюда:</p>
+    <div class="prod" id="prod">
+        <img data-tooltip="БАТОН!" alt="Baton" class="draggable" id="item" src="img/baton.png">
+        <img data-tooltip="Колбаска!" alt="Kolbasa" class="draggable" id="item2" src="img/kolbasa.png">
+        <img style="display:none" data-tooltip="Бутер" alt="Buter" class="draggable" id="item3" src="img/buter.png">
+        <img data-tooltip="Макароны" alt="Pero" class="draggable" id="item4" src="img/pero.png">
+        <img data-tooltip="КетЧук" alt="Ketchup" class="draggable" id="item5" src="img/ketchup.png">
+        <img style="display:none" data-tooltip="Макароны с четчупом" alt="Makaroshki s ketchupom" class="draggable" id="item6" src="img/gotovie_makaroni.jpg">
+    </div>
+    <p>переносить сюда:</p>
     <div class="stak">
         <div id="craft1" class="block droppable"></div>
         <div id="craft2" class="block droppable"></div>
         <div id="craftResult" class="block"></div>
         <div id="formula" class="block">
-            <center></br> Название рецепта:
-               
-                <input id="formulaName" type="text"></center>
-                <div id="formula1" class="block droppable"></div>
-        <div id="formula2" class="block droppable"></div>
-        <div id="formula3" class="block droppable"></div>
+            <center>
+                </br> Название рецепта:
+
+                <input id="formulaName" type="text">
+            </center>
+            <div id="formula1" class="block droppable"></div>
+            <div id="formula2" class="block droppable"></div>
+            <div id="formula3" class="block droppable"></div>
         </div>
-    
-     <button class="butt" id="result">Craft</button>
-  
+
+        <button class="butt" id="result">Craft</button>
 
 
-<script src="tool.js"></script>
- <script src="craft.js"></script>
- <script src="dragHtml5.js"></script>
+        <script src="js/moduleElements.js"></script>
+        <script src="js/tool.js"></script>
+        <script src="js/craft.js"></script>
+        <script src="js/dragHtml5.js"></script>
 
 </body>
 

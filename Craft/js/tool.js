@@ -25,7 +25,7 @@ document.onmouseover = function (e) {
     tooltipElem.style.top = top + 'px';
 
     showingTooltip = tooltipElem;
-   
+
 };
 
 document.onmouseout = function del(e) {
