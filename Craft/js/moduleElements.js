@@ -9,7 +9,11 @@ var ElementsModule = function () {
     var prod = document.getElementById("prod");
     var inpFormulaName = document.getElementById("formulaName");
     var but = document.getElementById("result");
+    var blockForFormula = document.getElementById("forFormula");
 
+    function getBlockForFormula(){
+        return blockForFormula;
+    }
     function getButtonCraftResult() {
         return but;
     }
@@ -63,7 +67,8 @@ var ElementsModule = function () {
         getBlockCraftResult: getBlockCraftResult,
         getBlockFormula3: getBlockFormula3,
         getInputNameFormula: getInputNameFormula,
-        getButtonCraftResult : getButtonCraftResult
+        getButtonCraftResult : getButtonCraftResult,
+        getBlockForFormula : getBlockForFormula
 
     };
 }();

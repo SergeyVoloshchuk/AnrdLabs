@@ -9,9 +9,15 @@ var blockFormula3 = ElementsModule.getBlockFormula3();
 var inpFormulaName = ElementsModule.getInputNameFormula();
 var but = ElementsModule.getButtonCraftResult();
 
-var elem1 = block1.getElementsByClassName("draggable");
-var elem2 = block2.getElementsByClassName("draggable");
-var elem3 = block3.getElementsByClassName("draggable");
+var elem1;
+var elem2;
+var elem3;
+
+elem1 = block1.getElementsByClassName("draggable");
+elem2 = block2.getElementsByClassName("draggable");
+elem3 = block3.getElementsByClassName("draggable");
+
+
 
 function Formula(name, ingr1, ingr2) {
     this.name = name;
@@ -24,15 +30,18 @@ function Ingredient(name, obj) {
     this.obj = obj;
 };
 
-var productKolbasa = new Ingredient("Kolbasa");
-var productBaton = new Ingredient("Baton");
-var productPero = new Ingredient("Pero");
-var productKetchup = new Ingredient("Ketchup");
-var productButer = new Ingredient("Buter");
-var productMakar = new Ingredient("Makaroshki s ketchupom");
+
+
+var productKolbasa = new Ingredient("Колбаса");
+var productBaton = new Ingredient("Батон");
+var productPero = new Ingredient("Макароны");
+var productKetchup = new Ingredient("Кетчуп");
+var productButer = new Ingredient("Бутер");
+var productMakar = new Ingredient("Макароны с кетчупом");
+var productMakKetchKolb = new Ingredient("Макароны с четчупом и колбасой");
 
 //хранит все продукты
-var masProd = [productKolbasa, productBaton, productPero, productKetchup, productButer, productMakar];
+var masProd = [productKolbasa, productBaton, productPero, productKetchup, productButer, productMakar, productMakKetchKolb];
 
 var elem;
 for (var i = 0; i < elements.length; i++) {
@@ -40,14 +49,16 @@ for (var i = 0; i < elements.length; i++) {
     for (var j = 0; j < masProd.length; j++) {
         if (masProd[j].name == elem) {
             masProd[j].obj = elements[i];
+
         }
     }
 }
-
-var formulaButer = new Formula("Buter", productKolbasa, productBaton);
-var formulaMakaron = new Formula("Makaroshki s ketchupom", productPero, productKetchup);
+render();
+var formulaButer = new Formula("Бутер", productKolbasa, productBaton);
+var formulaMakaron = new Formula("Макароны с кетчупом", productPero, productKetchup);
+var formulaMakKetKolb = new Formula("Макароны с четчупом и колбасой", productKolbasa, productMakar);
 //хранит все рецепты
-var formules = [formulaButer, formulaMakaron];
+var formules = [formulaButer, formulaMakaron, formulaMakKetKolb];
 
 
 but.onclick = function (e) {
@@ -61,10 +72,9 @@ but.onclick = function (e) {
     }
     var nName;
     for (var i = 0; i < formules.length; i++) {
-        if ((formules[i].ingr1.obj == elem1[0] && formules[i].ingr2.obj == elem2[0]) || (formules[i].ingr1.obj == elem2[0] && formules[i].ingr2.obj == elem1[0])) {
+        if ((formules[i].ingr1.obj.getAttribute("alt") == elem1[0].getAttribute("alt") && formules[i].ingr2.obj.getAttribute("alt") == elem2[0].getAttribute("alt")) || (formules[i].ingr1.obj.getAttribute("alt") == elem2[0].getAttribute("alt") && formules[i].ingr2.obj.getAttribute("alt") == elem1[0].getAttribute("alt"))) {
 
             nName = formules[i].name;
-
             break;
         }
 
@@ -96,13 +106,7 @@ document.onclick = function fun(e) {
     }
 
     function getFormula(ev, thisEl) {
-        var thisFormula;
-        for (var i = 0; i < formules.length; i++) {
-            if (formules[i].ingr1.obj == thisEl || formules[i].ingr2.obj == thisEl) {
-                thisFormula = formules[i];
-                break;
-            }
-        }
+
         var elemForm1 = blockFormula1.getElementsByClassName("draggable");
         var elemForm2 = blockFormula2.getElementsByClassName("draggable");
         var elemForm3 = blockFormula3.getElementsByClassName("draggable");
@@ -115,7 +119,18 @@ document.onclick = function fun(e) {
             return fun(e);
 
         }
+        var thisFormula;
+        for (var i = 0; i < formules.length; i++) {
+            if (formules[i].name === thisEl.getAttribute("alt")) {
+                thisFormula = formules[i];
+                break;
+            }
 
+        }
+
+        if (!thisFormula)
+            return;
+        
         var thisIngr = new Ingredient();
         var name;
         for (var i = 0; i < masProd.length; i++) {
@@ -135,13 +150,26 @@ document.onclick = function fun(e) {
     }
 }
 
-function cloneIngrAndAppendChild(thisIngr, inBlockAppend) {
+function render() {
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].style.display === "none") {
+            for (var j = 0; j < masProd.length; j++) {
+                if (elements[i] === masProd[j].obj) {
+                    cloneIngrAndAppendChild(masProd[j], ElementsModule.getBlockForFormula(), j);
+                }
+            }
+
+        }
+    }
+}
+
+function cloneIngrAndAppendChild(thisIngr, inBlockAppend, iter) {
 
     var clone = new Ingredient();
     var now = Date.now();
     clone.obj = thisIngr.obj.cloneNode(true);
     clone.name = thisIngr.name;
-    clone.obj.setAttribute("id", "item" + now);
+    clone.obj.setAttribute("id", "item" + now + iter);
     clone.obj.style.display = "inline-block";
     inBlockAppend.appendChild(clone.obj);
 }
