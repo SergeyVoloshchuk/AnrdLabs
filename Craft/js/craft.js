@@ -19,29 +19,10 @@ elem3 = block3.getElementsByClassName("draggable");
 
 
 
-function Formula(name, ingr1, ingr2) {
-    this.name = name;
-    this.ingr1 = ingr1;
-    this.ingr2 = ingr2;
-};
-
-function Ingredient(name, obj) {
-    this.name = name;
-    this.obj = obj;
-};
-
-
-
-var productKolbasa = new Ingredient("Колбаса");
-var productBaton = new Ingredient("Батон");
-var productPero = new Ingredient("Макароны");
-var productKetchup = new Ingredient("Кетчуп");
-var productButer = new Ingredient("Бутер");
-var productMakar = new Ingredient("Макароны с кетчупом");
-var productMakKetchKolb = new Ingredient("Макароны с четчупом и колбасой");
 
 //хранит все продукты
-var masProd = [productKolbasa, productBaton, productPero, productKetchup, productButer, productMakar, productMakKetchKolb];
+var masProd = ObjectModule.getMasProd;
+
 
 var elem;
 for (var i = 0; i < elements.length; i++) {
@@ -54,11 +35,8 @@ for (var i = 0; i < elements.length; i++) {
     }
 }
 render();
-var formulaButer = new Formula("Бутер", productKolbasa, productBaton);
-var formulaMakaron = new Formula("Макароны с кетчупом", productPero, productKetchup);
-var formulaMakKetKolb = new Formula("Макароны с четчупом и колбасой", productKolbasa, productMakar);
-//хранит все рецепты
-var formules = [formulaButer, formulaMakaron, formulaMakKetKolb];
+
+var formules = ObjectModule.getFormules;
 
 
 but.onclick = function (e) {
@@ -90,7 +68,7 @@ but.onclick = function (e) {
             break;
         }
     }
-    cloneIngrAndAppendChild(thisIngr, block3);
+    cloneIngrAndAppendChild(thisIngr, block3,1,true);
 
 
 
@@ -130,7 +108,7 @@ document.onclick = function fun(e) {
 
         if (!thisFormula)
             return;
-        
+
         var thisIngr = new Ingredient();
         var name;
         for (var i = 0; i < masProd.length; i++) {
@@ -141,9 +119,9 @@ document.onclick = function fun(e) {
                 break;
             }
         }
-        cloneIngrAndAppendChild(thisFormula.ingr1, blockFormula1);
-        cloneIngrAndAppendChild(thisFormula.ingr2, blockFormula2);
-        cloneIngrAndAppendChild(thisIngr, blockFormula3);
+        cloneIngrAndAppendChild(thisFormula.ingr1, blockFormula1,1,false);
+        cloneIngrAndAppendChild(thisFormula.ingr2, blockFormula2,2,false);
+        cloneIngrAndAppendChild(thisIngr, blockFormula3,3,false);
         inpFormulaName.value = thisFormula.name;
 
 
@@ -155,7 +133,7 @@ function render() {
         if (elements[i].style.display === "none") {
             for (var j = 0; j < masProd.length; j++) {
                 if (elements[i] === masProd[j].obj) {
-                    cloneIngrAndAppendChild(masProd[j], ElementsModule.getBlockForFormula(), j);
+                    cloneIngrAndAppendChild(masProd[j],ElementsModule.getBlockForFormula(),j,false);
                 }
             }
 
@@ -163,13 +141,13 @@ function render() {
     }
 }
 
-function cloneIngrAndAppendChild(thisIngr, inBlockAppend, iter) {
-
-    var clone = new Ingredient();
+function cloneIngrAndAppendChild(thisIngr, inBlockAppend, iter,flag) {
+    var clone = new Ingredient;
     var now = Date.now();
     clone.obj = thisIngr.obj.cloneNode(true);
     clone.name = thisIngr.name;
     clone.obj.setAttribute("id", "item" + now + iter);
     clone.obj.style.display = "inline-block";
+    clone.obj.setAttribute("draggable", flag);
     inBlockAppend.appendChild(clone.obj);
 }

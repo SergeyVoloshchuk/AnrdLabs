@@ -1,8 +1,6 @@
 var elements = ElementsModule.getElemsDrag();
 var block1 = ElementsModule.getBlockCraft1();
 var block2 = ElementsModule.getBlockCraft2();
-var blockFormula1 = ElementsModule.getBlockFormula1();
-var blockFormula2 = ElementsModule.getBlockFormula2();
 var prod = ElementsModule.getBlockProd();
 var bl;
 //установим атрибут drag для всех элементов 
