@@ -1,3 +1,4 @@
+
 var elements = ElementsModule.getElemsDrag();
 var prod = ElementsModule.getBlockProd();
 var block1 = ElementsModule.getBlockCraft1();
@@ -9,13 +10,9 @@ var blockFormula3 = ElementsModule.getBlockFormula3();
 var inpFormulaName = ElementsModule.getInputNameFormula();
 var but = ElementsModule.getButtonCraftResult();
 
-var elem1;
-var elem2;
-var elem3;
-
-elem1 = block1.getElementsByClassName("draggable");
-elem2 = block2.getElementsByClassName("draggable");
-elem3 = block3.getElementsByClassName("draggable");
+var elem1  = block1.getElementsByClassName("draggable");
+var elem2 = block2.getElementsByClassName("draggable");
+var elem3 = block3.getElementsByClassName("draggable");
 
 
 
