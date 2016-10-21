@@ -10,7 +10,7 @@
 <body>
     <div ng-controller="MyController">
 
-        <li ng-repeat="items in parent" ng-init="counter = $index" ng-click="counter = $index">
+        <li ng-repeat="items in parent" ng-init="counter = $index">
             <span ng-repeat="item in items">
             <span ng-click="remove($index,counter)">{{item}}</span>
             </span>
