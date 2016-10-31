@@ -9,6 +9,7 @@
 
         vm.random = random;
         vm.addTodo = addTodo;
+        vm.read = read;
 
         activate();
 
@@ -43,6 +44,10 @@
 
         function random() {
             activate();
+        }
+
+        function read(index) {
+            console.log("index");
         }
     }
 
