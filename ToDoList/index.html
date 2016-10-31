@@ -19,8 +19,20 @@
         <br> {{main.list.id}}
         <br> {{main.message}}
 
-
-
+        <span ng-repeat="item in main.list.todo">
+        <br>
+    {{item}}
+</span>
+        <li ng-repeat="todo in main.list.todo">
+            <label class="checkbox">
+                <input type="checkbox" ng-model="todo.flag">
+                <span>{{todo.name}}</span>
+            </label>
+        </li>
+        <form ng-submit="todoList.addTodo()">
+            <input type="text" ng-model="todoList.todoText" size="30" placeholder="add new todo here">
+            <input type="submit" value="add">
+        </form>
     </div>
     <script src="js/main.js"></script>
     <script src="js/controller/main.controller.js"></script>
