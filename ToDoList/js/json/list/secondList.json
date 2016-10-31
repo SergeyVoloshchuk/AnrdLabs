@@ -1,4 +1,16 @@
 {
     "id": 2,
-    "pathToNext": "js/json/list/messages/secondMessage.json"
+    "pathToNext": "js/json/list/messages/secondMessage.json",
+    "todo": [
+        {
+            "name": "Почистить зубы",
+            "flag": true
+        }, {
+            "name": "Сходить в магазин",
+            "flag": true
+        }, {
+            "name": "Нормально оформить код",
+            "flag": false
+        }
+    ]
 }
