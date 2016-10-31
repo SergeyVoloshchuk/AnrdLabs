@@ -10,12 +10,15 @@
         //
         activate();
 
+
         function activate() {
             console.log('Main Controller activated');
             var path = pathFactory.getRandomIndex();
-            console.log("path = " + path);
             firstInfoService.getData(path).then(function (res) {
-                vm.result = res;
+                vm.person = res;
+                return firstInfoService.getData(res.pathToList);
+            }).then(function (res) {
+                vm.list = res;
             });
 
 

@@ -2,5 +2,5 @@
     "name": "Jhon",
     "surname": "Lenon",
     "age": 25,
-    "pathToList": ""
+    "pathToList": "js/json/list/firstList.json"
 }
