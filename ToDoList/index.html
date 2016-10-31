@@ -35,8 +35,8 @@
 
             <li ng-repeat="todo in main.list.todo">
                 <label class="checkbox">
-                    <input type="checkbox" ng-model="todo.flag">
-                    <span>{{todo.name}}</span>
+                    <input type="checkbox" ng-style="{strike: deleted}" ng-model="todo.flag">
+                    <span class="done-{{todo.flag}}">{{todo.name}}</span>
                 </label>
             </li>
             <form ng-submit="main.addTodo()">
@@ -48,9 +48,11 @@
     </div>
     <script src="js/main.js"></script>
     <script src="js/controller/main.controller.js"></script>
-    <script src="js/helpers.js"></script>
+    <script src="js/modules/helpers.module.js"></script>
     <script src="js/services/data.service.js"></script>
     <script src="js/services/pathFactory.service.js"></script>
+    <script src="js/modules/list.module.js"></script>
+    <script src="js/modules/message.module.js"></script>
 
 
 </body>
