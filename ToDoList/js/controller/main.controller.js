@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('app').controller('MainController', MainController);
-    MainController.$inject = ['firstInfoService', '$q', 'pathFactory'];
+    MainController.$inject = ['dataService', '$q', 'pathFactory'];
 
-    function MainController(firstInfoService, $q, pathFactory) {
+    function MainController(dataService, $q, pathFactory) {
         var vm = this;
         //
         //
@@ -14,11 +14,15 @@
         function activate() {
             console.log('Main Controller activated');
             var path = pathFactory.getRandomIndex();
-            firstInfoService.getData(path).then(function (res) {
+            dataService.getData(path).then(function (res) {
                 vm.person = res;
-                return firstInfoService.getData(res.pathToList);
+                return dataService.getData(res.pathToList);
             }).then(function (res) {
                 vm.list = res;
+                console.log(res.pathToNext);
+                return dataService.getData(res.pathToNext);
+            }).then(function (res) {
+                vm.message = res.message;
             });
 
 
