@@ -1,5 +1,17 @@
 {
     "id": 3,
-    "pathToNext": "js/json/list/messages/thirdMessage.json"
+    "pathToNext": "js/json/list/messages/thirdMessage.json",
+    "todo": [
+        {
+            "name": "Почесать сабаку",
+            "flag": false
+        }, {
+            "name": "Пополнить баланс",
+            "flag": false
+        }, {
+            "name": "Выучить английский",
+            "flag": false
+        }
+    ]
 
 }
