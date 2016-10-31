@@ -35,8 +35,8 @@ body {
     margin-top: -248px;
     position: relative;
     padding: 5px;
-    height: 200px;
-    width: 500px;
+    min-height: 200px;
+    min-width: 500px;
     max-height: auto;
     max-width: auto;
     background-color: azure;
@@ -80,4 +80,14 @@ input {
 
 li {
     list-style-type: none;
+}
+
+.read-true {
+    display: block;
+    background: url("../img/read.png") no-repeat;
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+    margin-left: 450px;
+    margin-top: -38px;
 }

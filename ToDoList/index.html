@@ -26,11 +26,12 @@
         <div class="message">
 
             <h1>You have [{{main.messages.length}}] messages:</h1>
-
-            <span ng-repeat="message in main.messages">[{{$index+1}}]
-            <span ng-click="main.read($index)" ng-mouseleave="flag = false" ng-mouseover="flag = true" class="mess-{{flag}}">{{message}}
+            <span ng-repeat="message in main.messages ">[{{$index+1}}]
+            <span ng-click="reading = true;main.read()" ng-mouseleave="flag = false" ng-mouseover="flag = true" class="mess-{{flag}}" >{{message}}
             {{main.flag}}
+            <span class="read-{{reading}}"></span>
             </span>
+
             <br>
             </span>
         </div>
@@ -45,7 +46,10 @@
             <li ng-repeat="todo in main.list.todo | filter:{name:seach}">
                 <label class="checkbox">
                     <input type="checkbox" ng-model="todo.flag">
-                    <span class="done-{{todo.flag}}">{{todo.name}}</span>
+                    <span class="done-{{todo.flag}}">{{todo.name}}
+
+
+                    </span>
                 </label>
             </li>
             <form ng-submit="main.addTodo()">
@@ -58,7 +62,7 @@
                 </center>
             </form>
         </div>
-        <message></message>
+
     </div>
     <script src="js/main.js"></script>
     <script src="js/controller/main.controller.js"></script>

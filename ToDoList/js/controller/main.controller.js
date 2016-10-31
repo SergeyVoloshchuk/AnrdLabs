@@ -44,10 +44,13 @@
 
         function random() {
             activate();
+
         }
 
-        function read(index) {
-            console.log("index");
+        function read() {
+            vm.messages.length = vm.messages.length - 1;
+
+
         }
     }
 
