@@ -41,7 +41,7 @@
         }
 
         function random() {
-            console.log("BARABAN");
+            console.log("Karusel karusel");
             activate();
         }
     }
