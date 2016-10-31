@@ -5,24 +5,29 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div ng-controller="MainController as main">
-        {{main.person.name}}
-        <br> {{main.person.surname}}
-        <br>{{main.person.age}}
-        <br>{{main.person.pathToList}}
-        <br>
-        <br>
-        <br>
-        <br> {{main.list.id}}
-        <br> {{main.message}}
+        <div class="person">
+            Name: {{main.person.name}}
+            <br> Surname: {{main.person.surname}}
+            <br> Age: {{main.person.age}}
+            <div>
+                Номер аккаунта: {{main.list.id}}
+            </div>
+            <button ng-click="main.random()">Крутите БАРАБАН</button>
+        </div>
 
-        <span ng-repeat="item in main.list.todo">
-        <br>
-    {{item}}
-</span>
+        <div class="message">
+            <h1>You have [{{main.messages.length}}] messages:</h1>
+
+            <span ng-repeat="message in main.messages">[{{$index+1}}] {{message}}<br>
+            </span>
+
+        </div>
+
         <li ng-repeat="todo in main.list.todo">
             <label class="checkbox">
                 <input type="checkbox" ng-model="todo.flag">
