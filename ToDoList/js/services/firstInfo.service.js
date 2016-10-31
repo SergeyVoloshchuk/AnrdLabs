@@ -2,7 +2,7 @@
     'use strict';
     angular.module('app.helpers')
         .service('firstInfoService', FirstInfoService);
-    FirstInfoService.$inject = ['$http', '$q']
+    FirstInfoService.$inject = ['$http', '$q'];
 
     function FirstInfoService($http, $q) {
         var service = {
@@ -11,8 +11,8 @@
         };
         return service;
 
-        function getData() {
-            return $http.get('js/json/first.json').then(function (res) {
+        function getData(path) {
+            return $http.get(path).then(function (res) {
                 return res.data;
             })
         }

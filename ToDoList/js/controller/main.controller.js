@@ -12,9 +12,11 @@
 
         function activate() {
             console.log('Main Controller activated');
-            firstInfoService.getData().then(function (res) {
+            var path = 'js/json/first.json';
+            firstInfoService.getData(path).then(function (res) {
                 vm.result = res;
             });
+
 
 
         };
