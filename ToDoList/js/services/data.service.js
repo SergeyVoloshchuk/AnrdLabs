@@ -6,7 +6,7 @@
 
     function DataService($http) {
         var service = {
-            getData: getData,
+            getData: getData
         };
         return service;
 

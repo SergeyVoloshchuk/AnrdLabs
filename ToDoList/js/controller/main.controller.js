@@ -2,16 +2,15 @@
     'use strict';
 
     angular.module('app').controller('MainController', MainController);
-    MainController.$inject = ['dataService', 'pathFactory'];
+    MainController.$inject = ['dataService', 'pathFactory', 'listService'];
 
-    function MainController(dataService, pathFactory) {
+    function MainController(dataService, pathFactory, listService) {
         var vm = this;
 
-        vm.addTodo = addTodo;
         vm.random = random;
+        vm.addTodo = addTodo;
 
         activate();
-
 
         function activate() {
             console.log('Main Controller activated');
@@ -20,11 +19,13 @@
                 vm.person = res;
                 return dataService.getData(res.pathToList);
             }).then(function (res) {
-                vm.list = res;
+                listService.setList(res);
+                vm.list = listService.getList();
                 return dataService.getData(res.pathToNext);
             }).then(function (res) {
                 vm.messages = res.messages;
             });
+
         }
 
         function addTodo() {
@@ -41,7 +42,6 @@
         }
 
         function random() {
-            console.log("Karusel karusel");
             activate();
         }
     }
