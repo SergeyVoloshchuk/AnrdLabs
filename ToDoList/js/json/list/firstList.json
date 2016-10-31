@@ -1,5 +1,17 @@
 {
     "id": 1,
-    "pathToNext": "js/json/list/messages/firstMessage.json"
+    "pathToNext": "js/json/list/messages/firstMessage.json",
+    "todo": [
+        {
+            "name": "Встать на работу",
+            "flag": false
+        }, {
+            "name": "Покушать",
+            "flag": true
+        }, {
+            "name": "Выспаться",
+            "flag": false
+        }
+    ]
 
 }
