@@ -1,3 +1,7 @@
 (function () {
-    angular.module("app", []);
+    'use strict';
+    angular.module("app", [
+  // Helpers modules
+  'app.helpers'
+    ]);
 })();
