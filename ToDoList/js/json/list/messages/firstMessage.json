@@ -1,8 +1,19 @@
 {
     "messages": [
-        "Message from first person",
-        "Hello, has been add new function ",
-        "How are you? ",
-        "Go sleep pls "
+        {
+            "mess": "Message from first person",
+            "flag": false
+        },
+        {
+            "mess": "Hel,has been add new function ",
+            "flag": false
+}, {
+            "mess": "How are you? ",
+            "flag": false
+        }, {
+            "mess": "Go sleep pls ",
+            "flag": false
+        }
+
     ]
 }

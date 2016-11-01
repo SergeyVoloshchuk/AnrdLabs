@@ -9,6 +9,7 @@
 
         vm.random = random;
         vm.addTodo = addTodo;
+        vm.onRead = onRead;
 
         activate();
 
@@ -35,6 +36,14 @@
         //load page on random user
         function random() {
             activate();
+        }
+
+        function onRead(index) {
+            if (vm.messages[index].flag) {
+                return;
+            }
+            vm.messages[index].flag = true;
+            vm.countMess = vm.countMess - 1;
         }
 
 
