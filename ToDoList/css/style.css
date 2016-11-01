@@ -34,11 +34,9 @@ body {
     margin-left: 250px;
     margin-top: -248px;
     position: relative;
-    padding: 5px;
-    min-height: 200px;
-    min-width: 500px;
-    max-height: auto;
-    max-width: auto;
+    padding: 10px;
+    height: auto;
+    width: 500px;
     background-color: azure;
 }
 

@@ -24,6 +24,7 @@
                 return dataService.getData(res.pathToNext);
             }).then(function (res) {
                 vm.messages = res.messages;
+                vm.countMess = res.messages.length;
             });
 
         }
