@@ -27,23 +27,13 @@
             });
 
         }
-
+        //add tolo element in page
         function addTodo() {
-            if (!vm.todoText) {
-                alert("Enter text");
-                return;
-            }
-            var obj = {
-                name: vm.todoText,
-                flag: false
-            };
-            vm.list.todo.push(obj);
-            vm.todoText = "";
+            vm.todoText = listService.add(vm.todoText);
         }
-
+        //load page on random user
         function random() {
             activate();
-
         }
 
 
