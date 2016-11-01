@@ -9,7 +9,6 @@
 
         vm.random = random;
         vm.addTodo = addTodo;
-        vm.read = read;
 
         activate();
 
