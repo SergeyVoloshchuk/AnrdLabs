@@ -47,11 +47,7 @@
 
         }
 
-        function read() {
-            vm.messages.length = vm.messages.length - 1;
 
-
-        }
     }
 
 

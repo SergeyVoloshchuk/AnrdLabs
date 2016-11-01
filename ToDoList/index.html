@@ -27,7 +27,7 @@
 
             <h1>You have [{{main.messages.length}}] messages:</h1>
             <span ng-repeat="message in main.messages ">[{{$index+1}}]
-            <span ng-click="reading = true;main.read()" ng-mouseleave="flag = false" ng-mouseover="flag = true" class="mess-{{flag}}" >{{message}}
+            <span ng-click="reading = true;" ng-mouseleave="flag = false" ng-mouseover="flag = true" class="mess-{{flag}}" >{{message}}
             {{main.flag}}
             <span class="read-{{reading}}"></span>
             </span>
