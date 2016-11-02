@@ -15,6 +15,16 @@
 
         function activate() {
             console.log('Main Controller activated');
+            getDataForStartPage();
+
+
+        }
+        //add tolo element in page
+        function addTodo() {
+            vm.todoText = listService.add(vm.todoText);
+        }
+
+        function getDataForStartPage() {
             var path = pathFactory.getRandomIndex(); //getting random path for next step
             dataService.getData(path).then(function (res) {
                 vm.person = res;
@@ -27,15 +37,11 @@
                 vm.messages = res.messages;
                 vm.countMess = res.messages.length;
             });
-
-        }
-        //add tolo element in page
-        function addTodo() {
-            vm.todoText = listService.add(vm.todoText);
         }
         //load page on random user
         function random() {
-            activate();
+            console.log("update page with new parametrs");
+            getDataForStartPage();
         }
 
         function onRead(index) {
